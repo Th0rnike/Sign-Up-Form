@@ -159,6 +159,12 @@ function App() {
     reset();
   };
 
+  const validateEmail = (email: string) => {
+    // Regular expression for basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   return (
     <>
       <GlobalStyles />
@@ -203,7 +209,7 @@ function App() {
                 {...register("email", {
                   required: "Email can not be empty",
                   validate: (value) => {
-                    if (!value.includes("@")) {
+                    if (!validateEmail(value)) {
                       return "Looks like this is not an email";
                     } else {
                       return true;
