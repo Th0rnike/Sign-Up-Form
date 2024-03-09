@@ -6,6 +6,11 @@ import { styles } from "./assets/colors";
 const Title = styled.div`
   text-align: center;
   color: ${styles.colors.textWhite};
+
+  @media screen and (min-width: 1000px) {
+    width: 47%;
+    text-align: left;
+  }
 `;
 
 const H1 = styled.h1`
@@ -14,6 +19,12 @@ const H1 = styled.h1`
   line-height: 36px;
   letter-spacing: -0.29px;
   margin-bottom: 16px;
+
+  @media screen and (min-width: 1000px) {
+    font-size: 50px;
+    line-height: 55px;
+    letter-spacing: -0.5px;
+  }
 `;
 
 const PText = styled.p`
@@ -47,6 +58,9 @@ const OfferBold = styled.span`
 
 const MainDiv = styled.div`
   margin-top: 64px;
+  @media screen and (min-width: 1000px) {
+    width: 48%;
+  }
 `;
 
 const Form = styled.form`
@@ -55,6 +69,10 @@ const Form = styled.form`
   padding: 24px;
   margin-top: 24px;
   box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.15);
+
+  @media screen and (min-width: 1000px) {
+    padding: 40px;
+  }
 `;
 
 const Input = styled.input`
@@ -112,6 +130,14 @@ const InputBlock = styled.div`
   margin-bottom: 16px;
 `;
 
+const FlexDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 45px;
+`;
+
 interface FormProps {
   firtsName: string;
   lastName: string;
@@ -124,95 +150,99 @@ function App() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<FormProps>();
 
   const onSubmit: SubmitHandler<FormProps> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 700));
     console.log(data);
+    reset();
   };
 
   return (
     <>
       <GlobalStyles />
-      <Title>
-        <H1>Learn to code by watching others</H1>
-        <PText>
-          See how experienced developers solve problems in real-time. Watching
-          scripted tutorials is great, but understanding how developers think is
-          invaluable.
-        </PText>
-      </Title>
-      <MainDiv>
-        <Offer>
-          <OfferText>
-            <OfferBold>Try it free 7 days</OfferBold> then $20/mo. thereafter
-          </OfferText>
-        </Offer>
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <InputBlock>
-            <Input
-              {...register("firtsName", { required: true })}
-              type="text"
-              placeholder="First Name"
-            />
-            {errors.firtsName && (
-              <ErrorMessage>First Name can not be empty</ErrorMessage>
-            )}
-          </InputBlock>
-          <InputBlock>
-            <Input
-              {...register("lastName", { required: true })}
-              type="text"
-              placeholder="Last Name"
-            />
-            {errors.lastName && (
-              <ErrorMessage>Last Name cannot be empty</ErrorMessage>
-            )}
-          </InputBlock>
-          <InputBlock>
-            <Input
-              {...register("email", {
-                required: "Email can not be empty",
-                validate: (value) => {
-                  if (!value.includes("@")) {
-                    return "Email must include @";
-                  } else {
-                    return true;
-                  }
-                },
-              })}
-              type="text"
-              placeholder="Email Address"
-            />
-            {errors.email && (
-              <ErrorMessage>{errors.email.message}</ErrorMessage>
-            )}
-          </InputBlock>
-          <InputBlock>
-            <Input
-              {...register("password", {
-                required: "Password can not be empty",
-                minLength: {
-                  value: 8,
-                  message: "Password must have at least 8 characters",
-                },
-              })}
-              type="password"
-              placeholder="Password"
-            />
-            {errors.password && (
-              <ErrorMessage>{errors.password.message}</ErrorMessage>
-            )}
-          </InputBlock>
-          <Button type="submit">
-            {isSubmitting ? "Submitting..." : "CLAIM YOUR FREE TRIAL"}
-          </Button>
-          <BottomText>
-            By clicking the button, you are agreeing to our{" "}
-            <Terms>Terms and Services</Terms>
-          </BottomText>
-        </Form>
-      </MainDiv>
+      <FlexDiv>
+        <Title>
+          <H1>Learn to code by watching others</H1>
+          <PText>
+            See how experienced developers solve problems in real-time. Watching
+            scripted tutorials is great, but understanding how developers think
+            is invaluable.
+          </PText>
+        </Title>
+        <MainDiv>
+          <Offer>
+            <OfferText>
+              <OfferBold>Try it free 7 days</OfferBold> then $20/mo. thereafter
+            </OfferText>
+          </Offer>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <InputBlock>
+              <Input
+                {...register("firtsName", { required: true })}
+                type="text"
+                placeholder="First Name"
+              />
+              {errors.firtsName && (
+                <ErrorMessage>First Name can not be empty</ErrorMessage>
+              )}
+            </InputBlock>
+            <InputBlock>
+              <Input
+                {...register("lastName", { required: true })}
+                type="text"
+                placeholder="Last Name"
+              />
+              {errors.lastName && (
+                <ErrorMessage>Last Name cannot be empty</ErrorMessage>
+              )}
+            </InputBlock>
+            <InputBlock>
+              <Input
+                {...register("email", {
+                  required: "Email can not be empty",
+                  validate: (value) => {
+                    if (!value.includes("@")) {
+                      return "Looks like this is not an email";
+                    } else {
+                      return true;
+                    }
+                  },
+                })}
+                type="text"
+                placeholder="Email Address"
+              />
+              {errors.email && (
+                <ErrorMessage>{errors.email.message}</ErrorMessage>
+              )}
+            </InputBlock>
+            <InputBlock>
+              <Input
+                {...register("password", {
+                  required: "Password can not be empty",
+                  minLength: {
+                    value: 8,
+                    message: "Password must have at least 8 characters",
+                  },
+                })}
+                type="password"
+                placeholder="Password"
+              />
+              {errors.password && (
+                <ErrorMessage>{errors.password.message}</ErrorMessage>
+              )}
+            </InputBlock>
+            <Button type="submit">
+              {isSubmitting ? "Submitting..." : "CLAIM YOUR FREE TRIAL"}
+            </Button>
+            <BottomText>
+              By clicking the button, you are agreeing to our{" "}
+              <Terms>Terms and Services</Terms>
+            </BottomText>
+          </Form>
+        </MainDiv>
+      </FlexDiv>
     </>
   );
 }

@@ -13,6 +13,10 @@ const GlobalStyles = createGlobalStyle`
         background-color: ${styles.colors.mainBackground};
         background-image: url(${mobileBackground});
         padding: 88px 24px 68px 24px;
+
+        @media screen and (min-width: 1000px) {
+            padding: 121px 165px;
+        }
     }
 `;
 
