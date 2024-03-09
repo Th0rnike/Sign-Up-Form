@@ -131,11 +131,13 @@ const InputBlock = styled.div`
 `;
 
 const FlexDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  gap: 45px;
+  @media screen and (min-width: 1000px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 45px;
+  }
 `;
 
 interface FormProps {
