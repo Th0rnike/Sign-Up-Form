@@ -2,7 +2,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
 import { styles } from "./assets/colors";
-import { mainSheet } from "styled-components/dist/models/StyleSheetManager";
 
 const Title = styled.div`
   text-align: center;
@@ -64,10 +63,10 @@ const Input = styled.input`
   font-weight: 600;
   line-height: 26px;
   letter-spacing: 0.25px;
-  margin-bottom: 16px;
   width: 100%;
   border: 1px solid ${styles.colors.inputBorder};
   border-radius: 5px;
+  outline: none;
 `;
 
 const Button = styled.button`
@@ -97,6 +96,20 @@ const BottomText = styled.p`
 const Terms = styled.span`
   font-weight: 700;
   color: ${styles.colors.mainBackground};
+`;
+
+const ErrorMessage = styled.p`
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: right;
+  color: ${styles.colors.mainBackground};
+  margin-top: 6px;
+`;
+
+const InputBlock = styled.div`
+  margin-bottom: 16px;
 `;
 
 interface FormProps {
@@ -136,45 +149,61 @@ function App() {
           </OfferText>
         </Offer>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            {...register("firtsName", { required: true })}
-            type="text"
-            placeholder="First Name"
-          />
-          {errors.firtsName && <p>First Name can not be empty</p>}
-          <Input
-            {...register("lastName", { required: true })}
-            type="text"
-            placeholder="Last Name"
-          />
-          {errors.lastName && <p>Last Name cannot be empty</p>}
-          <Input
-            {...register("email", {
-              required: "Email can not be empty",
-              validate: (value) => {
-                if (!value.includes("@")) {
-                  return "Email must include @";
-                } else {
-                  return true;
-                }
-              },
-            })}
-            type="text"
-            placeholder="Email Address"
-          />
-          {errors.email?.message}
-          <Input
-            {...register("password", {
-              required: "Password can not be empty",
-              minLength: {
-                value: 8,
-                message: "Password must have at least 8 characters",
-              },
-            })}
-            type="password"
-            placeholder="Password"
-          />
-          {errors.password?.message}
+          <InputBlock>
+            <Input
+              {...register("firtsName", { required: true })}
+              type="text"
+              placeholder="First Name"
+            />
+            {errors.firtsName && (
+              <ErrorMessage>First Name can not be empty</ErrorMessage>
+            )}
+          </InputBlock>
+          <InputBlock>
+            <Input
+              {...register("lastName", { required: true })}
+              type="text"
+              placeholder="Last Name"
+            />
+            {errors.lastName && (
+              <ErrorMessage>Last Name cannot be empty</ErrorMessage>
+            )}
+          </InputBlock>
+          <InputBlock>
+            <Input
+              {...register("email", {
+                required: "Email can not be empty",
+                validate: (value) => {
+                  if (!value.includes("@")) {
+                    return "Email must include @";
+                  } else {
+                    return true;
+                  }
+                },
+              })}
+              type="text"
+              placeholder="Email Address"
+            />
+            {errors.email && (
+              <ErrorMessage>{errors.email.message}</ErrorMessage>
+            )}
+          </InputBlock>
+          <InputBlock>
+            <Input
+              {...register("password", {
+                required: "Password can not be empty",
+                minLength: {
+                  value: 8,
+                  message: "Password must have at least 8 characters",
+                },
+              })}
+              type="password"
+              placeholder="Password"
+            />
+            {errors.password && (
+              <ErrorMessage>{errors.password.message}</ErrorMessage>
+            )}
+          </InputBlock>
           <Button type="submit">
             {isSubmitting ? "Submitting..." : "CLAIM YOUR FREE TRIAL"}
           </Button>
