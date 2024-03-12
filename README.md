@@ -2,15 +2,21 @@
 
 Welcome to our sign-up form repository! This repository contains the necessary files and instructions to set up a sign-up form for your application.
 
-## Mobile Vesrsion Screen
-![Screen Shot 2024-03-12 at 13 32 29](https://github.com/Th0rnike/Sign-Up-Form/assets/116254117/c2e20952-1528-4b3a-a60b-32adfcee92e7)
+## Desktop Screen
+![Screenshot 2024-03-12 at 13-31-16 Sign Up Form](https://github.com/Th0rnike/Sign-Up-Form/assets/116254117/18234ab8-5656-4212-ad28-205f5a877683)
 
 ## Table of Contents
-
+- [Technologies Used](#technologies_used)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
 - [Credits](#credits)
+
+## Technologies Used
+- typescript
+- react
+- react hook forms
+- styled components
 
 ## Installation
 
