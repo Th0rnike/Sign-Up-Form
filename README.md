@@ -56,3 +56,4 @@ I would like to express my gratitude to the following tools, platforms, and reso
 - [React Hook Form Tutorial](https://www.youtube.com/watch?v=cc_xmawJ8Kg&list=LL&index=2&t=1287s) - offers beginner-friendly tutorials on utilizing React Hook Forms. Discover the essentials of React Hook Forms with ease on this channel.
 
 - [React Hook Form](https://react-hook-form.com/get-started) - documentation for react hook forms
+# Sign-Up-Form
