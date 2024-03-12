@@ -2,9 +2,8 @@
 
 Welcome to our sign-up form repository! This repository contains the necessary files and instructions to set up a sign-up form for your application.
 
+## Mobile Vesrsion Screen
 ![Screen Shot 2024-03-12 at 13 32 29](https://github.com/Th0rnike/Sign-Up-Form/assets/116254117/c2e20952-1528-4b3a-a60b-32adfcee92e7)
-
-![Uploading Screenshot 2024-03-12 at 13-31-16 Sign Up Form.png…]()
 
 ## Table of Contents
 
