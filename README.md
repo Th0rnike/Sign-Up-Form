@@ -2,6 +2,10 @@
 
 Welcome to our sign-up form repository! This repository contains the necessary files and instructions to set up a sign-up form for your application.
 
+![Screen Shot 2024-03-12 at 13 32 29](https://github.com/Th0rnike/Sign-Up-Form/assets/116254117/c2e20952-1528-4b3a-a60b-32adfcee92e7)
+
+![Uploading Screenshot 2024-03-12 at 13-31-16 Sign Up Form.png…]()
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -53,7 +57,6 @@ I would like to express my gratitude to the following tools, platforms, and reso
 
 - [BitCamp Reactor](https://reactor.bitcamp.ge/)👨🏻‍💻 - Bitcamp is an online academy renowned for its Bitcamp Reactor course, focusing on React and front-end development. It offers comprehensive lectures, hands-on tasks, and Figma designs to enhance programming skills. Dive into Bitcamp Reactor for an immersive learning journey in web development.
 
-- [React Hook Form Tutorial](https://www.youtube.com/watch?v=cc_xmawJ8Kg&list=LL&index=2&t=1287s) - offers beginner-friendly tutorials on utilizing React Hook Forms. Discover the essentials of React Hook Forms with ease on this channel.
+- [React Hook Form Tutorial](https://www.youtube.com/watch?v=cc_xmawJ8Kg&list=LL&index=2&t=1287s)🟥 - offers beginner-friendly tutorials on utilizing React Hook Forms. Discover the essentials of React Hook Forms with ease on this channel.
 
-- [React Hook Form](https://react-hook-form.com/get-started) - documentation for react hook forms
-# Sign-Up-Form
+- [React Hook Form](https://react-hook-form.com/get-started)📄 - documentation for react hook forms
